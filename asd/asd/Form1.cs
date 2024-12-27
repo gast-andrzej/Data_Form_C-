@@ -188,7 +188,14 @@ namespace asd
         private void button9_Click(object sender, EventArgs e)
         {
             baza.Remove(baza.Count);
-            index--;
+            if (index == 0)
+            {
+                index = 0;
+            }
+            else
+            {
+                index--;
+            }
         }
 
         private void button11_Click(object sender, EventArgs e)
@@ -244,7 +251,7 @@ namespace asd
             var bazax = baza;
             string jsonString = JsonConvert.SerializeObject(baza);
             File.WriteAllText("data.json", jsonString);
-            MessageBox.Show($"Zapisano rekordy: {index - 1}");
+            MessageBox.Show($"Zapisano bazę");
         }
 
         private void button17_Click(object sender, EventArgs e)
@@ -257,7 +264,7 @@ namespace asd
             {
                 index += 1;
             }
-            MessageBox.Show($"Wczytano rekordy: {index-1}");
+            MessageBox.Show($"Wczytano bazę");
         }
     }
 }
